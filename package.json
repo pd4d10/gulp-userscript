@@ -1,0 +1,27 @@
+{
+  "name": "gulp-userscript",
+  "version": "0.0.1",
+  "description": "Generate UserScript header using gulp.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pd4d10/gulp-userscript.git"
+  },
+  "keywords": [],
+  "author": "pd4d10 <pd4d10@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pd4d10/gulp-userscript/issues"
+  },
+  "homepage": "https://github.com/pd4d10/gulp-userscript#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
