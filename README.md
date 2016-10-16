@@ -1,5 +1,7 @@
 # gulp-userscript
 
+[![Build Status](https://travis-ci.org/pd4d10/gulp-userscript.svg?branch=master)](https://travis-ci.org/pd4d10/gulp-userscript)
+
 Generate UserScript.
 
 ## Usage
