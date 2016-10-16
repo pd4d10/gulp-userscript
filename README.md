@@ -1,2 +1,27 @@
 # gulp-userscript
-Generate UserScript header using gulp.
+
+Generate UserScript.
+
+## Usage
+
+```js
+const gulp = require('gulp')
+const userscript = require('gulp-userscript')
+
+gulp.task('userscript', function () {
+  return gulp.src('/path/to/src.js')
+    .pipe(userscript({
+      name: 'Your UserScript name',
+      namespace: '',
+      version: '',
+      match: '',
+      include:
+      // more options, see https://wiki.greasespot.net/Metadata_Block
+    }))
+    .pipe(gulp.dest('/dest/folder'))
+})
+```
+
+## License
+
+MIT

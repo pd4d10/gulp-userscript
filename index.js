@@ -1,18 +1,35 @@
 const through = require('through2')
 const gutil = require('gulp-util')
+const PluginError = gutil.PluginError
 
-function isUndefined(val) {
-  return val == null
+const PLUGIN_NAME = 'gulp-prefixer'
+
+function prefixStream(prefixText) {
+  var stream = through();
+  stream.write(prefixText)
+  return stream
+}
+
+function getKey(k, v) {
+  if (typeof v === 'string') {
+    return `// @${k} ${v}\n`
+  }
+
+  if (Array.isArray(v)) {
+    return v.map(x => getKey(k, x)).join('')
+  }
+
+  throw new PluginError(PLUGIN_NAME, 'Value type must be string or array.')
+}
+
+function getUser(opt) {
+  opt = opt || {}
+  const x = Object.keys(opt).map(k => getKey(k, opt[k])).join('')
+  return '// ==UserScript==\n' + x + '// ==/UserScript==\n\n'
 }
 
 function userscript(opt) {
-  opt = opt || {}
-
-  if (isUndefined(opt.user)) {
-    gutil.throw()
-  }
-
-  prefixText = new Buffer(prefixText) // allocate ahead of time
+  const userscriptMeta = new Buffer(getUser(opt))
 
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
@@ -20,7 +37,7 @@ function userscript(opt) {
     }
 
     if (file.isBuffer()) {
-      file.contents = Buffer.concat([prefixText, file.contents])
+      file.contents = Buffer.concat([userscriptMeta, file.contents])
     }
 
     if (file.isStream()) {
