@@ -1,10 +1,10 @@
 'use strict'
 
-const through = require('through2')
-const gutil = require('gulp-util')
-const PluginError = gutil.PluginError
+var through = require('through2')
+var gutil = require('gulp-util')
+var PluginError = gutil.PluginError
 
-const PLUGIN_NAME = 'gulp-prefixer'
+var PLUGIN_NAME = 'gulp-prefixer'
 
 function prefixStream(prefixText) {
   var stream = through();
@@ -26,12 +26,12 @@ function getKey(k, v) {
 
 function getUser(opt) {
   opt = opt || {}
-  const x = Object.keys(opt).map(k => getKey(k, opt[k])).join('')
+  var x = Object.keys(opt).map(k => getKey(k, opt[k])).join('')
   return '// ==UserScript==\n' + x + '// ==/UserScript==\n\n'
 }
 
 function userscript(opt) {
-  const userscriptMeta = new Buffer(getUser(opt))
+  var userscriptMeta = new Buffer(getUser(opt))
 
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
