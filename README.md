@@ -14,7 +14,7 @@ gulp.task('userscript', function () {
   return gulp.src('/path/to/src.js')
     .pipe(userscript({
       name: 'Your Userscript name', // required
-      namespace: 'Your Userscript namespace',
+      namespace: 'namespace',
       version: '0.1',
       'run-at': 'document-end',
       // Use an array when the field has multiple values
@@ -25,6 +25,21 @@ gulp.task('userscript', function () {
     }))
     .pipe(gulp.dest('/path/to/dest'))
 })
+```
+
+will generate Userscript metadata like this:
+
+```js
+// ==UserScript==
+// @name Your Userscript name
+// @namespace namespace
+// @version 0.1
+// @run-at document-end
+// @match http://www.example.com/*
+// @match https://www.example.com/*
+// ==/UserScript==
+
+// ... /path/to/src.js content here
 ```
 
 For more options, see https://wiki.greasespot.net/Metadata_Block
