@@ -1,3 +1,5 @@
-test.js
+coverage/
 test-files/
+test.js
+.gitignore
 .travis.yml

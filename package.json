@@ -1,7 +1,7 @@
 {
   "name": "gulp-userscript",
-  "version": "0.0.1",
-  "description": "Generate UserScript header using gulp.",
+  "version": "1.0.0",
+  "description": "Generate Userscript metadata with gulp.",
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover _mocha -- -R spec"
