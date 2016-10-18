@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/pd4d10/gulp-userscript.git"
   },
-  "keywords": [],
+  "keywords": [
+    "gulp",
+    "userscript"
+  ],
   "author": "pd4d10 <pd4d10@gmail.com>",
   "license": "MIT",
   "bugs": {
