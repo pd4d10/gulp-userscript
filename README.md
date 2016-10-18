@@ -1,6 +1,9 @@
 # gulp-userscript
 
 [![Build Status](https://travis-ci.org/pd4d10/gulp-userscript.svg?branch=master)](https://travis-ci.org/pd4d10/gulp-userscript)
+[![codecov](https://codecov.io/gh/pd4d10/gulp-userscript/branch/master/graph/badge.svg)](https://codecov.io/gh/pd4d10/gulp-userscript)
+[![npm](https://img.shields.io/npm/v/gulp-userscript.svg)](https://www.npmjs.com/package/gulp-userscript)
+[![](https://img.shields.io/npm/l/gulp-userscript.svg)](https://www.npmjs.com/package/gulp-userscript)
 
 Generate Userscript metadata.
 
