@@ -5,5 +5,7 @@ node_js:
   - '4'
   - '0.12'
   - '0.10'
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+script:
+  - npm test
+  - npm install -g codecov
+  - codecov
