@@ -2,29 +2,12 @@
 
 var through = require('through2')
 var gutil = require('gulp-util')
+var userscript = require('userscript-meta')
 
 var PluginError = gutil.PluginError
 var PLUGIN_NAME = 'gulp-userscript'
 
-function getLine(key, value) {
-  // For field which has multiple values, like `match`
-  if (Array.isArray(value)) {
-    return value.map(function (value) {
-      return getLine(key, value)
-    }).join('')
-  }
-
-  return '// @' + key + ' ' + value + '\n'
-}
-
-function getMetaPrefix(opt) {
-  var meta = Object.keys(opt).map(function (key) {
-    return getLine(key, opt[key])
-  }).join('')
-  return '// ==UserScript==\n' + meta + '// ==/UserScript==\n\n'
-}
-
-function userscript(opt) {
+module.exports = function (opt) {
   if (opt == null) {
     throw new PluginError(PLUGIN_NAME, 'Option is missing')
   }
@@ -38,7 +21,7 @@ function userscript(opt) {
     throw new PluginError(PLUGIN_NAME, 'Option should have a `name` key')
   }
 
-  var meta = new Buffer(getMetaPrefix(opt))
+  var meta = new Buffer(userscript.stringify(opt) + '\n')
 
   return through.obj(function (file, enc, cb) {
     if (file.isBuffer()) {
@@ -54,5 +37,3 @@ function userscript(opt) {
     cb(null, file)
   })
 }
-
-module.exports = userscript
