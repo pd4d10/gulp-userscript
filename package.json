@@ -4,7 +4,7 @@
   "description": "Generate Userscript metadata with gulp.",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- -R spec"
+    "test": "eslint *.js && istanbul cover _mocha"
   },
   "files": [
     "index.js"
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/pd4d10/gulp-userscript#readme",
   "devDependencies": {
+    "eslint": "^3.8.1",
     "event-stream": "^3.3.4",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2"

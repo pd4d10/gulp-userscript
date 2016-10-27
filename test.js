@@ -68,7 +68,7 @@ describe('gulp-userscript', function () {
     )
   })
 
-  describe('in buffer mode', function (done) {
+  describe('in buffer mode', function () {
     testOptions.forEach(function (option) {
       it(option.title, function (done) {
         var stream = userscript(option.meta)
