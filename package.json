@@ -4,7 +4,8 @@
   "description": "Generate Userscript metadata with gulp.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint *.js && istanbul cover _mocha"
+    "lint": "eslint *.js",
+    "test": "istanbul cover _mocha"
   },
   "files": [
     "index.js"
