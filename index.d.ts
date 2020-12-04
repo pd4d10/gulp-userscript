@@ -28,6 +28,9 @@ declare namespace gulpUserscript {
     'run-at'?: 'document-start' | 'document-body' | 'document-end' | 'document-idle' | 'context-menu';
     grant?: string | string[];
     nocompat?: string;
+
+    // For others not listed
+    [key: string]: string | string[];
   }
 }
 
