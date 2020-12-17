@@ -21,7 +21,7 @@ module.exports = function (opt) {
     throw new PluginError(PLUGIN_NAME, 'Option should have a `name` key')
   }
 
-  var meta = new Buffer(userscript.stringify(opt) + '\n')
+  var meta = Buffer.from(userscript.stringify(opt) + '\n')
 
   return through.obj(function (file, enc, cb) {
     if (file.isBuffer()) {

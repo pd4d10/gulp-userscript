@@ -27,14 +27,14 @@
   },
   "homepage": "https://github.com/pd4d10/gulp-userscript#readme",
   "devDependencies": {
-    "eslint": "^3.8.1",
-    "event-stream": "^3.3.4",
+    "eslint": "^7.15.0",
+    "event-stream": "^4.0.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.2"
+    "mocha": "^8.2.1"
   },
   "dependencies": {
     "gulp-util": "^3.0.7",
-    "through2": "^2.0.1",
+    "through2": "^4.0.2",
     "userscript-meta": "^1.0.0"
   }
 }

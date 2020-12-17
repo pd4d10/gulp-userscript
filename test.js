@@ -74,11 +74,11 @@ describe('gulp-userscript', function () {
         var stream = userscript(option.meta)
 
         stream.write(new File({
-          contents: new Buffer(src)
+          contents: Buffer.from(src)
         }))
         stream.once('data', function (file) {
           assert(file.isBuffer())
-          assert.equal(file.contents.toString(), option.dest)
+          assert.strictEqual(file.contents.toString(), option.dest)
           done()
         })
       })
@@ -97,7 +97,7 @@ describe('gulp-userscript', function () {
         stream.once('data', function (file) {
           assert(file.isStream())
           file.contents.pipe(es.wait(function (err, data) {
-            assert.equal(data.toString(), option.dest)
+            assert.strictEqual(data.toString(), option.dest)
             done()
           }))
         })
