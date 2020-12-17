@@ -1,10 +1,9 @@
 'use strict'
 
 var through = require('through2')
-var gutil = require('gulp-util')
 var userscript = require('userscript-meta')
 
-var PluginError = gutil.PluginError
+var PluginError = require('plugin-error')
 var PLUGIN_NAME = 'gulp-userscript'
 
 module.exports = function (opt) {

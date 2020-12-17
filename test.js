@@ -3,11 +3,10 @@
 var fs = require('fs')
 var assert = require('assert')
 var es = require('event-stream')
-var gutil = require('gulp-util')
 var userscript = require('./')
 
-var File = gutil.File
-var PluginError = gutil.PluginError
+var Vinyl = require('vinyl')
+var PluginError = require('plugin-error')
 
 var src = fs.readFileSync('./test-files/src.js').toString()
 
@@ -73,7 +72,7 @@ describe('gulp-userscript', function () {
       it(option.title, function (done) {
         var stream = userscript(option.meta)
 
-        stream.write(new File({
+        stream.write(new Vinyl({
           contents: Buffer.from(src)
         }))
         stream.once('data', function (file) {
@@ -89,7 +88,7 @@ describe('gulp-userscript', function () {
     testOptions.forEach(function (option) {
       it(option.title, function (done) {
         var stream = userscript(option.meta)
-        var file = new File({
+        var file = new Vinyl({
           contents: es.readArray([src])
         })
 
